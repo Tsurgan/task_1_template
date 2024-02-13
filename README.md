@@ -1,2 +1,2 @@
-# task_1_template
-Шаблон компонента news.list.
+# task_2_template
+Шаблон компонента form.result.new.
