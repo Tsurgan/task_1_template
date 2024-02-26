@@ -1,22 +1,37 @@
-<div id="barba-wrapper">
-    <div class="article-list">
-    <?foreach($arResult["ITEMS"] as $arItem):?>
-    <a class="article-item article-list__item" href="<?echo $arItem["DETAIL_PAGE_URL"]?>"
-                                 data-anim="anim-3">
-        <div class="article-item__background"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"
-                                                   data-src="xxxHTMLLINKxxx0.39186223192351520.41491856731872767xxx"
-                                                   alt=""/></div>
-        <div class="article-item__wrapper">
-    		<?if($arParams["DISPLAY_NAME"]!="N" && $arItem["NAME"]):?>
-                    <div class="article-item__title"><?echo $arItem["NAME"]?></div>
-    		<?endif;?>
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<div class="article-card">
 
-    		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-            <div class="article-item__content"><?echo $arItem["PREVIEW_TEXT"];?></div>
-    		<?endif;?>
 
-        </div>
-    </a>
-    <?endforeach;?>
+    <?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
+    <div class="article-card__title">
+    	<?=$arResult["NAME"]?>
     </div>
-</div>
+    <?endif;?>
+
+
+
+	<?if($arParams["DISPLAY_DATE"]!="N" && $arResult["DISPLAY_ACTIVE_FROM"]):?>
+	<div class="article-card__date">
+		<?=$arResult["DISPLAY_ACTIVE_FROM"]?>
+	</div>
+	<?endif;?>
+
+    <div class="article-card__content">
+
+
+    <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arResult["DETAIL_PICTURE"])):?>
+        <div class="article-card__image sticky">
+            <img class="detail_picture" src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" width="<?=$arResult["DETAIL_PICTURE"]["WIDTH"]?>" height="<?=$arResult["DETAIL_PICTURE"]["HEIGHT"]?>" alt="<?=$arResult["NAME"]?>"  title="<?=$arResult["NAME"]?>" data-object-fit="cover" />
+        </div>
+    <?endif?>
+
+        <div class="article-card__text">
+            <div class="block-content" data-anim="anim-3">
+ 	<?if($arResult["DETAIL_TEXT"] <> ''):?>
+		<?echo $arResult["DETAIL_TEXT"];?>
+ 	<?else:?>
+		<?echo $arResult["PREVIEW_TEXT"];?>
+	<?endif?>
+            </div>
+
+
