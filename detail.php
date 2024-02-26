@@ -41,8 +41,5 @@
 	$component
 );?>
 
-<a class="article-card__button" href="<?=$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"]?>">&larr; <?=GetMessage("T_NEWS_DETAIL_BACK")?></a>
-</div>
-</div>
-</div>
+
 
