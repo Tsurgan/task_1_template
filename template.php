@@ -34,4 +34,7 @@
 	<?endif?>
             </div>
 
-
+	<a class="article-card__button" href="/novosti.php">&larr; <?=GetMessage("T_NEWS_DETAIL_BACK")?></a>
+	</div>
+     </div>
+</div>
